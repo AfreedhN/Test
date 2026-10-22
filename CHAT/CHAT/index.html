@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Chat — Keep in touch</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="rail" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Chat home">
+          <img src="Assets/logo.png" alt="">
+        </a>
+        <button class="rail-avatar active" aria-label="Open profile">
+          <img src="Assets/avatar1.jpeg" alt="Your profile">
+        </button>
+        <div class="rail-bottom">
+          <button class="icon-button" id="theme-toggle" aria-label="Toggle dark mode">
+            <img src="Assets/theme.png" alt="">
+          </button>
+          <button class="icon-button" id="logout-button" aria-label="Sign out">
+            <img src="Assets/logout.png" alt="">
+          </button>
+        </div>
+      </aside>
+
+      <aside class="sidebar" aria-label="Chats and contacts">
+        <section class="recent-section">
+          <div class="section-heading">
+            <div>
+              <h1>Recent</h1>
+              <p>Chat from your friends <span aria-hidden="true">😘</span></p>
+            </div>
+            <button class="icon-button" aria-label="More recent stories">
+              <img src="Assets/menu.png" alt="">
+            </button>
+          </div>
+          <div class="stories">
+            <button class="story story-one" aria-label="View Jpny's story">
+              <img src="Assets/avatar1.jpeg" alt="">
+              <span>Jpny</span>
+              <i class="status-dot yellow"></i>
+            </button>
+            <button class="story story-two" aria-label="View John Deo's story">
+              <img src="Assets/avatar2.jpeg" alt="">
+              <span>John Deo</span>
+              <i class="status-dot red"></i>
+            </button>
+          </div>
+        </section>
+
+        <section class="chats-section">
+          <div class="section-heading chat-heading">
+            <div>
+              <h2>Chat</h2>
+              <p>Start New Conversation</p>
+            </div>
+            <button class="icon-button" id="search-toggle" aria-label="Search conversations">
+              <img src="Assets/search.png" alt="">
+            </button>
+          </div>
+          <label class="search-field" id="search-field">
+            <span class="sr-only">Search conversations</span>
+            <input id="search-input" type="search" placeholder="Search conversations">
+          </label>
+          <div class="tabs" role="tablist" aria-label="Conversation type">
+            <button class="tab active" role="tab" aria-selected="true" data-filter="chat">Chat</button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="call">Call</button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="contact">Contact</button>
+          </div>
+          <button class="conversation active" data-name="josephin water" data-type="chat">
+            <span class="conversation-avatar">
+              <img src="Assets/avatar2.jpeg" alt="">
+              <i class="status-dot gray"></i>
+            </span>
+            <span class="conversation-copy">
+              <strong>Josephin water</strong>
+              <small>Hi, i am josephin. How are you....</small>
+            </span>
+            <span class="conversation-meta">
+              <small>22/10/23</small>
+              <strong>Seen</strong>
+            </span>
+          </button>
+          <p class="empty-state" id="empty-state" hidden>No conversations found.</p>
+        </section>
+      </aside>
+
+      <section class="conversation-panel" aria-label="Conversation with Josephin water">
+        <header class="conversation-header">
+          <div class="contact-summary">
+            <span class="header-avatar">
+              <img src="Assets/avatar1.jpeg" alt="">
+              <i class="online-dot"></i>
+            </span>
+            <div class="contact-name">
+              <strong>Josephin water</strong>
+              <span>Active</span>
+            </div>
+          </div>
+          <span class="header-divider"></span>
+          <div class="header-actions">
+            <button class="icon-button" id="sound-toggle" aria-label="Mute conversation">
+              <img src="Assets/sound.png" alt="">
+            </button>
+            <button class="icon-button" id="message-search" aria-label="Search messages">
+              <img src="Assets/search.png" alt="">
+            </button>
+          </div>
+          <div class="header-actions call-actions">
+            <button class="icon-button" data-notice="Starting an audio call…" aria-label="Start audio call">
+              <img src="Assets/call.png" alt="">
+            </button>
+            <button class="icon-button" data-notice="Starting a video call…" aria-label="Start video call">
+              <img src="Assets/video.png" alt="">
+            </button>
+            <button class="icon-button" aria-label="Conversation details">
+              <img src="Assets/menu.png" alt="">
+            </button>
+            <button class="icon-button plain-icon" id="more-button" aria-label="More options">
+              <img src="Assets/more.png" alt="">
+            </button>
+          </div>
+        </header>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <article class="message-row outgoing">
+            <div class="message-content">
+              <div class="message-meta"><strong>Alan joseph</strong><time>01:40 AM</time></div>
+              <p>Hi I am Alan,</p>
+              <p>your personal assistant to help you</p>
+            </div>
+            <img class="message-avatar" src="Assets/avatar1.jpeg" alt="Alan">
+          </article>
+          <article class="message-row incoming">
+            <img class="message-avatar" src="Assets/avatar2.jpeg" alt="Josephin">
+            <div class="message-content">
+              <div class="message-meta"><strong>Josephin water</strong><time>01:35 AM</time></div>
+              <p>Hi I am Josephin, can you help me to find best chat app?.</p>
+              <p>it should from elite auther</p>
+            </div>
+          </article>
+        </div>
+
+        <form class="composer" id="message-form">
+          <button class="icon-button attach-main" type="button" id="add-options" aria-label="More attachment options">
+            <img src="Assets/plus-fill.png" alt="">
+          </button>
+          <div class="composer-tools">
+            <button class="icon-button" type="button" id="upload-button" aria-label="Upload an image">
+              <img src="Assets/upload.png" alt="">
+            </button>
+            <button class="icon-button" type="button" id="emoji-button" aria-label="Add an emoji">
+              <img src="Assets/emoji-fill.png" alt="">
+            </button>
+            <button class="icon-button" type="button" id="attach-button" aria-label="Attach a file">
+              <img src="Assets/plus-fill1.png" alt="">
+            </button>
+          </div>
+          <input class="message-input" id="message-input" type="text" placeholder="Write your message..." autocomplete="off" aria-label="Write your message">
+          <input class="file-input" id="file-input" type="file" accept="image/*" hidden>
+          <div class="send-tools">
+            <button class="icon-button" type="button" id="record-button" aria-label="Record a voice message">
+              <img src="Assets/record.png" alt="">
+            </button>
+            <button class="icon-button send-button" type="submit" aria-label="Send message">
+              <img src="Assets/send.png" alt="">
+            </button>
+          </div>
+        </form>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>
